@@ -75,7 +75,7 @@ body {
   align-items: flex-end;
   justify-content: center;
   padding: 40px 20px 80px;
-  background-image: url("/home/princeali/Downloads/store/workbench.png");
+  background-image: url("workbench.png");
   background-size: 1080px 600px;
   background-repeat: no-repeat;
   background-position: center bottom;
