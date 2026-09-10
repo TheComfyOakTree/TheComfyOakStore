@@ -1,53 +1,23 @@
 
-// script.js
-
-// 1. Smooth scroll for internal anchor links (if you add any like href="#contact")
-document.addEventListener("click", function (e) {
-  const link = e.target.closest('a[href^="#"]');
-  if (!link) return;
-
-  const targetId = link.getAttribute("href").slice(1);
-  const targetEl = document.getElementById(targetId);
-  if (!targetEl) return;
-
-  e.preventDefault();
-  targetEl.scrollIntoView({ behavior: "smooth" });
-});
-
-// 2. Shrink header slightly on scroll
-(function () {
-  const header = document.querySelector(".site-header");
-  if (!header) return;
-
-  function onScroll() {
-    if (window.scrollY > 40) {
-      header.classList.add("site-header--scrolled");
-    } else {
-      header.classList.remove("site-header--scrolled");
-    }
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    }));
   }
-
-  window.addEventListener("scroll", onScroll);
-  onScroll();
-})();
-
-// 3. Basic contact form handler (front-end only)
-(function () {
-  const form = document.querySelector(".contact-form");
-  if (!form) return;
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const name = formData.get("name") || "friend";
-
-    alert(
-      `Thank you, ${name}! Your message has been received.\n\n` +
-      "Since this is a static site, please make sure to connect this form to a real backend or email service later."
-    );
-
-    form.reset();
+  document.querySelectorAll('form[data-demo-form]').forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn=form.querySelector('button[type="submit"]');
+      if(btn){ const old=btn.textContent; btn.textContent='Message sent'; setTimeout(()=>btn.textContent=old,2500); }
+      form.reset();
+    });
   });
-})();
-
+});
