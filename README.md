@@ -17,6 +17,11 @@ Every file sits in this one folder (no sub-folders), so you can upload them all 
 | `about.html`, `reviews.html`, `faq.html`, `shipping-returns.html`, `contact.html` | Info pages |
 | `shop.html`, `care-faq.html`, `mystery-box.html` | Old addresses that redirect to the new pages |
 
+## The cozy hillside look
+- `cozy.css`: parchment, wooden header, round green doors, arched windows, letters, rolling-hill footer.
+- `cozy.js`: fireflies over the hero, round doors that swing open, and the 🔥 hearth button (a crackling-fire sound made in the browser, off until clicked).
+- The homepage has a clickable storybook map ("The Hollow beneath the Old Oak") and a fireside corner.
+
 ## Things to change before going live
 - **Phone number** — still a placeholder (`+44 (0) 123 456 7890`). Change it at the top of `script.js` (`SHOP.phone`).
 - **Contact & newsletter forms** — paste a Formspree/Getform link into `SHOP.formEndpoint` in `script.js` to receive messages.
